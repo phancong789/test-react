@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../CustomHook/hook";
-import { selectToken, setTokenFormStogare } from "../features/authorSlice";
+import { selectToken, setTokenFormStogare } from "../Features/authorSlice";
 
 export function PrivateRoute() {
   const token = useAppSelector(selectToken);
@@ -15,7 +15,7 @@ export function PrivateRoute() {
   return token ? (
     <Outlet />
   ) : (
-    <Navigate to="/dang-nhap" state={{ from: location }} replace />
+    <Navigate to="/login" state={{ from: location }} replace />
   );
 }
 

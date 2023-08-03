@@ -12,18 +12,12 @@ import { Feature, Geometry } from "geojson";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
-import { useAppSelector } from "../../CustomHook/hook";
+import { useAppSelector } from "../CustomHook/hook";
 import { Button, Col, Nav } from "react-bootstrap";
-import { useLazyGetProvinceQuery } from "./ProvinceApi";
-import { selectMapinfo, selectProvinces } from "./ProvinceSlice";
+import { useLazyGetProvinceQuery } from "../Services/MilitariesApi";
+import { selectMapinfo, selectProvinces } from "../Features/MilitariesSlice";
 import ProvinceCard from "./ProvinceCard";
-import * as env from "../../env";
-import DrawControl from "./draw-control";
-import SimpleSelect from "./draw/simple_select";
-import DrawLineString from "./draw/linestring";
-import DrawRectangle from "./draw/rectangle";
-import DrawCircle from "./draw/circle";
-import IMapInfo from "../../Interface/IMapInfo";
+import * as env from "../env";
 
 const Titles = styled.p`
   font-weight: bold;

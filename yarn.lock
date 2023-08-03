@@ -1483,7 +1483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.22.6
   resolution: "@babel/runtime@npm:7.22.6"
   dependencies:
@@ -2072,10 +2072,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@remix-run/router@npm:1.4.0"
-  checksum: 707dce35a2b8138005cf19e63f6fd3c4da05b4b892e9e9118e8b727c3b95953efe27307ca2df35084044df30fa1fc367cf0bbc98d1ded9020c82e61e6242caaf
+"@remix-run/router@npm:1.7.2":
+  version: 1.7.2
+  resolution: "@remix-run/router@npm:1.7.2"
+  checksum: ea43bb662f1f5c93965989b1667fb6e8a301cb69c44341ee92c81cb15ea685b494168e5905593b5777d59058f1455b4b58083d5b895f04382e49362e420d7af4
   languageName: node
   linkType: hard
 
@@ -2133,6 +2133,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
+  dependencies:
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+  checksum: 2c0778570d9a01d05afabc781b32163f28409bb98f7245c38d5eaf082416fdb73034003f5825eb5e21313044e8d2d9e1f3fe2831e345d3d1b1d20bcd12270719
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.12":
   version: 7.0.12
   resolution: "@types/json-schema@npm:7.0.12"
@@ -2140,12 +2150,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mapbox-gl@npm:>=1.0.0":
+"@types/mapbox-gl@npm:*, @types/mapbox-gl@npm:>=1.0.0":
   version: 2.7.12
   resolution: "@types/mapbox-gl@npm:2.7.12"
   dependencies:
     "@types/geojson": "*"
   checksum: bedfe1b277b4876b62a2c5ca7d21b85f58fd60e6472462d4c19eb641126ced52a57cc895ac7e3d42af6484e72e7bf8665579a493bc365e7783a79b66c2eb58ef
+  languageName: node
+  linkType: hard
+
+"@types/mapbox__mapbox-gl-draw@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@types/mapbox__mapbox-gl-draw@npm:1.4.0"
+  dependencies:
+    "@types/geojson": "*"
+    "@types/mapbox-gl": "*"
+  checksum: 8cc16b86b3e21d241fe64ba7b70c1acf193871eb7cfbe77e074560b3abf294fe47ae480c9c7d6c4e62480057edf1e18beb57d005bfeeb30c29738843b8e550a3
   languageName: node
   linkType: hard
 
@@ -2203,6 +2223,13 @@ __metadata:
   version: 4.2.0
   resolution: "@types/stylis@npm:4.2.0"
   checksum: 02a47584acd2fcb664f7d8270a69686c83752bdfb855f804015d33116a2b09c0b2ac535213a4a7b6d3a78b2915b22b4024cce067ae979beee0e4f8f5fdbc26a9
+  languageName: node
+  linkType: hard
+
+"@types/use-sync-external-store@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "@types/use-sync-external-store@npm:0.0.3"
+  checksum: 161ddb8eec5dbe7279ac971531217e9af6b99f7783213566d2b502e2e2378ea19cf5e5ea4595039d730aa79d3d35c6567d48599f69773a02ffcff1776ec2a44e
   languageName: node
   linkType: hard
 
@@ -2730,6 +2757,13 @@ __metadata:
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
   checksum: 2ac8cd2b2f5ec986a3c743935ec85b07bc174d5421a5efc8017e1f146a1cf5f781ae962618f416352103b32c9cd7e203276e8c28241bbe946160cab16149fb68
+  languageName: node
+  linkType: hard
+
+"clsx@npm:^1.1.1":
+  version: 1.2.1
+  resolution: "clsx@npm:1.2.1"
+  checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
   languageName: node
   linkType: hard
 
@@ -3585,6 +3619,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: ^16.7.0
+  checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
+  languageName: node
+  linkType: hard
+
 "http-cache-semantics@npm:^4.1.1":
   version: 4.1.1
   resolution: "http-cache-semantics@npm:4.1.1"
@@ -4046,6 +4089,15 @@ __metadata:
     tinyqueue: ^2.0.3
     vt-pbf: ^3.1.3
   checksum: 4a2303170cc3e703fb4a3d9866bb4b8000af6975977f220d03d063bfe40edf8ebc5dd72eee18e05a9bf5644c655c151a09529880bb9ca5df62cb1235ef2ef05f
+  languageName: node
+  linkType: hard
+
+"mdi-react@npm:^9.2.0":
+  version: 9.2.0
+  resolution: "mdi-react@npm:9.2.0"
+  peerDependencies:
+    react: ">=0.14.0"
+  checksum: 6ae33ba778499f7a3b8af71b25c94e02ea13a8648ce5a3c29dac200bb87ed3c8441417fc54b1e25000bdc5f7e5684232c8e3715c184bd5d4fba2b90f8bb303c9
   languageName: node
   linkType: hard
 
@@ -4569,10 +4621,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1, react-is@npm:^16.3.2":
+"react-is@npm:^16.13.1, react-is@npm:^16.3.2, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^18.0.0":
+  version: 18.2.0
+  resolution: "react-is@npm:18.2.0"
+  checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
   languageName: node
   linkType: hard
 
@@ -4603,6 +4662,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-redux@npm:^8.1.2":
+  version: 8.1.2
+  resolution: "react-redux@npm:8.1.2"
+  dependencies:
+    "@babel/runtime": ^7.12.1
+    "@types/hoist-non-react-statics": ^3.3.1
+    "@types/use-sync-external-store": ^0.0.3
+    hoist-non-react-statics: ^3.3.2
+    react-is: ^18.0.0
+    use-sync-external-store: ^1.0.0
+  peerDependencies:
+    "@types/react": ^16.8 || ^17.0 || ^18.0
+    "@types/react-dom": ^16.8 || ^17.0 || ^18.0
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+    react-native: ">=0.59"
+    redux: ^4 || ^5.0.0-beta.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+    redux:
+      optional: true
+  checksum: 4d5976b0f721e4148475871fcabce2fee875cc7f70f9a292f3370d63b38aa1dd474eb303c073c5555f3e69fc732f3bac05303def60304775deb28361e3f4b7cc
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:^0.14.0":
   version: 0.14.0
   resolution: "react-refresh@npm:0.14.0"
@@ -4610,14 +4701,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router@npm:6.9.0":
-  version: 6.9.0
-  resolution: "react-router@npm:6.9.0"
+"react-router-dom@npm:^6.14.2":
+  version: 6.14.2
+  resolution: "react-router-dom@npm:6.14.2"
   dependencies:
-    "@remix-run/router": 1.4.0
+    "@remix-run/router": 1.7.2
+    react-router: 6.14.2
   peerDependencies:
     react: ">=16.8"
-  checksum: b2a5f42e042bee7a7f116ca7817b0e58359e5353d84887c9fe7a633d7490c03b1e0ae37cd01830c2a381e3d1e7d501bb4751e53cc3d491e25f36582d3f6e0546
+    react-dom: ">=16.8"
+  checksum: a53dbc566ecab7890b829d42d38553684f704803c1f615db1bd6aa2d71542c369a1a79e4385be31ae71a14b72ddbcd0d8b51188248c2bccd44e015050d1927df
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.14.2":
+  version: 6.14.2
+  resolution: "react-router@npm:6.14.2"
+  dependencies:
+    "@remix-run/router": 1.7.2
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 7507bf5732b3a8ddbd901c2061216eebca73e194449bff58acc1445171e22bdda36b455b8af066e467748ebfb5875b3c0a565941c46af65c6f653a6ed0dc4fe4
+  languageName: node
+  linkType: hard
+
+"react-toastify@npm:9.1.2":
+  version: 9.1.2
+  resolution: "react-toastify@npm:9.1.2"
+  dependencies:
+    clsx: ^1.1.1
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 0b21851bbb03592aa6e318ca62622016a6aa37cc52484c4a2fee39ce38c9933993e570c8ad9375f0a7061d3401fd175796b74f851b7d5a711b4802e0a3f9f34a
   languageName: node
   linkType: hard
 
@@ -5123,9 +5239,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^6.0.6":
-  version: 6.0.6
-  resolution: "styled-components@npm:6.0.6"
+"styled-components@npm:6.0.7":
+  version: 6.0.7
+  resolution: "styled-components@npm:6.0.7"
   dependencies:
     "@babel/cli": ^7.21.0
     "@babel/core": ^7.21.0
@@ -5153,7 +5269,7 @@ __metadata:
   peerDependenciesMeta:
     babel-plugin-styled-components:
       optional: true
-  checksum: bbff4a483fe4ef8dc9f7c0b65622177738970dd0d71730d44553c0694931d1ef2afed3c38879481cedd76410c75fa5cdac3d7e0f250135b8af19de30278e510b
+  checksum: 38645f38f145225e456f8f9303f5be1d988180e0e3d84d1f3e1d14fb006c7deb69704745e266d61016616a154938697d011a0bff6eaeb7dd25dbba659e2411f7
   languageName: node
   linkType: hard
 
@@ -5218,6 +5334,7 @@ __metadata:
   dependencies:
     "@mapbox/mapbox-gl-draw": ^1.4.2
     "@reduxjs/toolkit": ^1.9.5
+    "@types/mapbox__mapbox-gl-draw": ^1.4.0
     "@types/react": ^18.2.18
     "@types/react-dom": ^18.2.7
     "@typescript-eslint/eslint-plugin": ^6.2.1
@@ -5229,13 +5346,16 @@ __metadata:
     eslint-plugin-react-refresh: ^0.4.3
     geojson: ^0.5.0
     mapbox-gl: ^2.15.0
+    mdi-react: ^9.2.0
     react: ^18.2.0
     react-bootstrap: ^2.8.0
     react-dom: ^18.2.0
     react-map-gl: ^7.1.3
-    react-router: 6.9.0
+    react-redux: ^8.1.2
+    react-router-dom: ^6.14.2
+    react-toastify: 9.1.2
     sass: ^1.64.2
-    styled-components: ^6.0.6
+    styled-components: 6.0.7
     typescript: ^5.1.6
     vite: ^4.4.8
   languageName: unknown
@@ -5450,6 +5570,15 @@ __metadata:
   dependencies:
     punycode: ^2.1.0
   checksum: 7167432de6817fe8e9e0c9684f1d2de2bb688c94388f7569f7dbdb1587c9f4ca2a77962f134ec90be0cc4d004c939ff0d05acc9f34a0db39a3c797dada262633
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.0.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 

@@ -1,0 +1,60 @@
+.thbtn {
+  border: none;
+  background-color: inherit;
+  text-align: center;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.arrowIcon {
+  visibility: hidden;
+  transition: 0.3s linear;
+}
+
+.thbtn:hover + .arrowIcon {
+  visibility: visible;
+}
+
+.show {
+  visibility: visible !important;
+}
+
+.indexCount {
+  background-color: rgba(187, 186, 186, 0.644);
+  visibility: hidden;
+  border-radius: 50%;
+  height: 20px;
+  display: flex;
+  margin: 3px;
+  align-items: center;
+  padding: 5px 6px;
+  p {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.tableWaper {
+  overflow: auto;
+  max-height: 60rem;
+}
+
+.upsidedown {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 2048px) {
+  .tableWaper {
+    overflow: auto;
+    max-height: 30rem;
+  }
+}
+@media screen and (max-width: 1700px) {
+  .tableWaper {
+    overflow: auto;
+    max-height: 20rem;
+    max-width: 73rem;
+  }
+}

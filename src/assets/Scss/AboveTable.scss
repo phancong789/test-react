@@ -1,0 +1,13 @@
+.SearchbarWapper {
+  display: flex;
+  #Searchbar {
+    background-color: white;
+    color: black;
+    border: none;
+    flex-grow: 1;
+    outline: 0;
+  }
+  padding: 10px;
+  margin-right: 2rem;
+  border-bottom: 2px groove gray;
+}

@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { RootState } from "../../app/store";
-import * as env from "../../env";
-import IListData from "../../Interface/IListData";
-import IMapInfo from "../../Interface/IMapInfo";
+import { RootState } from "../app/store";
+import * as env from "../env";
+import IListData from "../Interface/IListData";
+import IMapInfo from "../Interface/IMapInfo";
 
-export const ProvinceApi = createApi({
+export const MilitariesApi = createApi({
   reducerPath: "ProvinceApi",
   baseQuery: fetchBaseQuery({
     baseUrl: env.hostName,
@@ -24,11 +24,11 @@ export const ProvinceApi = createApi({
   endpoints: (builder) => ({
     getProvince: builder.query<IListData<IMapInfo[]>, any>({
       query: () => ({
-        url: env.apiRoute.provinces,
+        url: env.apiRoute.militaries,
         params: env.getProvinParams,
       }),
     }),
   }),
 });
 
-export const { useLazyGetProvinceQuery } = ProvinceApi;
+export const { useLazyGetProvinceQuery } = MilitariesApi;

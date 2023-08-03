@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
-import { ProvinceApi } from "./ProvinceApi";
-import IListData from "../../Interface/IListData";
-import IMapInfo from "../../Interface/IMapInfo";
+import { RootState } from "../app/store";
+import { MilitariesApi } from "../Services/MilitariesApi";
+import IListData from "../Interface/IListData";
+import IMapInfo from "../Interface/IMapInfo";
 
 export interface StartState {
   Province: IListData<IMapInfo[]> | null;
@@ -16,8 +16,8 @@ const initialState: StartState = {
   status: "idle",
 };
 
-const ProvinceSlice = createSlice({
-  name: "ProvinceSlice",
+const MilitariesSlice = createSlice({
+  name: "MilitariesSlice",
   initialState,
   reducers: {
     setMapinfo: (state, action: PayloadAction<IMapInfo>) => {
@@ -30,7 +30,7 @@ const ProvinceSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addMatcher(
-      ProvinceApi.endpoints.getProvince.matchFulfilled,
+      MilitariesApi.endpoints.getProvince.matchFulfilled,
       (state, { payload }) => {
         if (state.Province) {
           state.Province.list = state.Province.list.concat(payload.list);
@@ -44,10 +44,10 @@ const ProvinceSlice = createSlice({
   },
 });
 
-export const { setMapinfo, deleteMapInfo } = ProvinceSlice.actions;
+export const { setMapinfo, deleteMapInfo } = MilitariesSlice.actions;
 
 export const selectProvinces = (state: RootState) =>
   state.ProvinceSlice.Province;
 export const selectMapinfo = (state: RootState) => state.ProvinceSlice.mapinfo;
 
-export default ProvinceSlice.reducer;
+export default MilitariesSlice.reducer;

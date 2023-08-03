@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Container from "react-bootstrap/Container";
@@ -10,15 +10,16 @@ import LockOutlineIcon from "mdi-react/LockOutlineIcon";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useLoginMutation } from "../service/autherApi";
+import { useLoginMutation } from "../Services/autherApi";
 import IError from "../Interface/IError";
 import { ToastContainer, toast } from "react-toastify";
 
 const SecHeader = styled.div`
-  background-color: #da2a1c;
+  background-color: #00725b;
   display: flex;
-  height: 6rem;
+  height: 7rem;
   padding: 0;
+  font-family: SVN-Product Sans, sans-serif !important;
   div {
     align-items: center;
   }
@@ -28,14 +29,8 @@ const Title = styled.h1`
   color: white;
   width: 100%;
   margin: 0 auto;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-align: center;
-`;
-
-const Logowaper = styled.div`
-  max-width: 80px;
-  max-height: 80px;
-  padding: 5px 15px;
 `;
 
 export default function LoginPage() {
@@ -52,14 +47,17 @@ export default function LoginPage() {
       const formdata = new FormData(form);
       try {
         await login(formdata).unwrap();
-        navigate("/bang-dieu-khien");
+        navigate("/");
       } catch (error) {
         setErrorData(error as IError);
-        toast.error(errorData?.data.message);
       }
       setValidate(true);
     }
   };
+
+  useEffect(() => {
+    toast.error(errorData?.data.message);
+  }, [errorData]);
 
   return (
     <div>
@@ -89,18 +87,9 @@ export default function LoginPage() {
                 justifyContent: "center",
               }}
             >
-              <Link to="/">
-                <Logowaper>
-                  <img
-                    style={{ width: "80%" }}
-                    src="http://wlp.howizbiz.com/static/img/logoColor.e5de23ce.png"
-                    alt=""
-                  />
-                </Logowaper>
-              </Link>
               <Title>
-                HỆ THỐNG BÁO CÁO VỀ HIỆN TRẠNG LOÀI NGUY CẤP QUÝ HIẾM ĐƯỢC ƯU
-                TIÊN BẢO VỆ
+                HỆ THỐNG THÔNG TIN ĐỊA LÝ <br />
+                MẠNG GIAO THÔNG VẬN TẢI QUÂN SỰ
               </Title>
             </div>
           </SecHeader>
