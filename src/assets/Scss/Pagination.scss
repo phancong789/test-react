@@ -1,0 +1,31 @@
+.Pagination {
+  display: flex;
+  justify-content: space-between;
+  ul {
+    display: flex;
+    list-style: none;
+    button {
+      border: 1px groove whitesmoke;
+      background-color: inherit;
+    }
+  }
+
+  select {
+    border: none;
+    outline: none;
+    color: black;
+    background-color: white;
+    font-size: 1.2rem;
+    padding: 5px 15px 5px 5px;
+
+    border-bottom: 3px solid rgb(199, 199, 199);
+    &:focus {
+      border-bottom: 4px solid rgb(2, 71, 0);
+    }
+  }
+
+  .active {
+    background-color: rgb(20, 87, 0);
+    color: white;
+  }
+}

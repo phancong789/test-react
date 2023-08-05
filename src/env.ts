@@ -1,18 +1,12 @@
 const hostName = "https://gtvtqs.samcom.com.vn/";
 
-let getProvinParams = new URLSearchParams({
+let getMilitariesParams = new URLSearchParams({
   showGeometry: "true",
   paginate: "true",
   page: "1",
-  perpage: "18",
-});
-
-let getMilitariesParams = new URLSearchParams({
-  paginate: "true",
-  page: "1",
-  perpage: "3",
+  itemsPerPage: "5",
   search: "",
-  sort: "name",
+  sort: "",
 });
 
 let apiRoute = {
@@ -20,7 +14,9 @@ let apiRoute = {
   login: "api/web-authenticate",
   logout: "api/logout",
   addNew: "api/layers/75/features",
+  update: "api/layers/75/features/",
+  delete: "api/layers/75/features/",
   me: "api/me",
 };
 
-export { hostName, apiRoute, getProvinParams };
+export { hostName, apiRoute, getMilitariesParams };

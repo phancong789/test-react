@@ -1,5 +1,7 @@
 .SearchbarWapper {
   display: flex;
+  align-items: center;
+  box-sizing: content-box;
   #Searchbar {
     background-color: white;
     color: black;

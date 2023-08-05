@@ -1,14 +1,9 @@
-import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/esm/Row";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import MenuIcon from "mdi-react/MenuIcon";
 import UserInfoPopDown from "./UserPopDown";
 import "../assets/Scss/ControlPanelTopBar.scss";
-import { useAppDispatch } from "../CustomHook/hook";
-import { setToggleControlPanelSiderBar } from "../Features/UiSlice";
 
 const SecHeader = styled.div`
   background-color: white;
@@ -36,7 +31,6 @@ const Logowaper = styled.div`
 `;
 
 export default function TopBar() {
-  const dispatch = useAppDispatch();
   return (
     <Container fluid className="ControlPanelTopBar flex-lg-shrink-1">
       <Row>
@@ -48,15 +42,6 @@ export default function TopBar() {
               justifyContent: "center",
             }}
           >
-            <Button
-              variant="light"
-              onClick={() => {
-                dispatch(setToggleControlPanelSiderBar());
-              }}
-              className="rounded-circle"
-            >
-              <MenuIcon />
-            </Button>
             <Link to="/">
               <Logowaper>
                 <img

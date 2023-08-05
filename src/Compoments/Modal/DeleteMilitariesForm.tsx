@@ -1,13 +1,15 @@
 import CloseIcon from "mdi-react/CloseIcon";
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/esm/Button";
 import styled from "styled-components";
+import { useAppSelector } from "../../CustomHook/hook";
+import { selectSelectedMilitaries } from "../../Features/MilitariesSlice";
 import {
-  useDeleteUserMutation,
-  useGetUserListQuery,
-} from "../../../service/UserApi";
-import { useAppSelector } from "../../../CustomHook/hook";
-import { selectSelectedUser } from "../../../features/UserSlice";
+  useDeleteMilitariesMutation,
+  useGetMilitariesQuery,
+} from "../../Services/MilitariesApi";
+import IError from "../../Interface/IError";
+import { toast } from "react-toastify";
 
 const Dialog = styled.dialog`
   z-index: 3;
@@ -20,6 +22,8 @@ const Dialog = styled.dialog`
   top: 50%;
   transform: translateY(-50%);
   outline: none;
+  background-color: white;
+  color: black;
   &::backdrop {
     background-color: #00000078;
   }
@@ -29,13 +33,19 @@ const openDeleteModal = () => {
   document.querySelector<HTMLDialogElement>(".deleteUser-modal")?.showModal();
 };
 
-export default function DeleteUserForm() {
-  const [deleteUser] = useDeleteUserMutation();
-  const userdata = useAppSelector(selectSelectedUser);
-  const { refetch } = useGetUserListQuery(0);
-  const clickHanlde = () => {
-    deleteUser(userdata);
-    refetch();
+export default function DeleteMilitariesForm() {
+  const [trigger] = useDeleteMilitariesMutation();
+  const { refetch } = useGetMilitariesQuery(0);
+  const [errorData, setErrorData] = useState<IError | null>(null);
+  const selectmilitaries = useAppSelector(selectSelectedMilitaries);
+  const clickHanlde = async () => {
+    try {
+      await trigger(selectmilitaries?.id);
+      await refetch();
+      toast.success("Xóa quân khu thành công");
+    } catch (err) {
+      toast.error("Xóa quân khu thất bại");
+    }
     CloseModal();
   };
 
@@ -47,7 +57,7 @@ export default function DeleteUserForm() {
   return (
     <Dialog className="deleteUser-modal">
       <div className="d-flex p-3 mb-2 justify-content-between text-light bg-danger">
-        <h5 className="pt-2 pb-2 ps-2 m-0">Cập nhật người dùng</h5>
+        <h5 className="pt-2 pb-2 ps-2 m-0">Bạn có chắc chắn không ?</h5>
         <Button onClick={CloseModal} variant="none" className="p-1 m-1">
           <CloseIcon color="#fff" />
         </Button>
@@ -55,8 +65,8 @@ export default function DeleteUserForm() {
       <div>
         <p className="mt-4 me-3 mb-2 ms-3">
           Bạn có chắc muốn xóa{" "}
-          <span className="text-danger">{userdata?.username}</span>. Điều này
-          hoàn toàn không thế hoàn tác!
+          <span className="text-danger">{selectmilitaries?.name}</span>. Điều
+          này hoàn toàn không thế hoàn tác!
         </p>
       </div>
       <div className="m-3 d-flex justify-content-end">

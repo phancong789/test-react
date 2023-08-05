@@ -2,14 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
 
 export interface UIState {
-  toggleControlPanelSiderBar: boolean;
-  switchSearchPageContent: "grid" | "table" | "map" | "statistical" | string;
+  switchTableType: "list" | "map" | string;
   status: "idle" | "loading" | "failed";
 }
 
 const initialState: UIState = {
-  toggleControlPanelSiderBar: true,
-  switchSearchPageContent: "grid",
+  switchTableType: "list",
   status: "idle",
 };
 
@@ -17,26 +15,19 @@ const uiSilce = createSlice({
   name: "uiSilce",
   initialState,
   reducers: {
-    setToggleControlPanelSiderBar: (state) => {
-      state.toggleControlPanelSiderBar = !state.toggleControlPanelSiderBar;
-      state.status = "idle";
-    },
-    setSwitchSearchPageContent: (
+    setSwitchTableType: (
       state,
-      action: PayloadAction<"grid" | "table" | "map" | "statistical" | string>
+      action: PayloadAction<"list" | "map" | string>
     ) => {
-      state.switchSearchPageContent = action.payload;
+      state.switchTableType = action.payload;
       state.status = "idle";
     },
   },
 });
 
-export const { setToggleControlPanelSiderBar, setSwitchSearchPageContent } =
-  uiSilce.actions;
+export const { setSwitchTableType } = uiSilce.actions;
 
-export const selectToggleControlPanelSiderBar = (state: RootState) =>
-  state.uiSilce.toggleControlPanelSiderBar;
-export const selectSwitchSearchPageContent = (state: RootState) =>
-  state.uiSilce.switchSearchPageContent;
+export const selectSwitchTableType = (state: RootState) =>
+  state.uiSilce.switchTableType;
 
 export default uiSilce.reducer;

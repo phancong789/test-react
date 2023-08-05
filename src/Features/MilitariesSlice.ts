@@ -2,17 +2,17 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
 import { MilitariesApi } from "../Services/MilitariesApi";
 import IListData from "../Interface/IListData";
-import IMapInfo from "../Interface/IMapInfo";
+import IMilitariesData from "../Interface/IMilitariesData";
 
 export interface StartState {
-  Province: IListData<IMapInfo[]> | null;
-  mapinfo: IMapInfo[];
+  Militaries: IListData<IMilitariesData[]> | null;
+  SelectMilitaries: IMilitariesData | null;
   status: "idle" | "loading" | "failed";
 }
 
 const initialState: StartState = {
-  Province: null,
-  mapinfo: [],
+  Militaries: null,
+  SelectMilitaries: null,
   status: "idle",
 };
 
@@ -20,34 +20,33 @@ const MilitariesSlice = createSlice({
   name: "MilitariesSlice",
   initialState,
   reducers: {
-    setMapinfo: (state, action: PayloadAction<IMapInfo>) => {
-      state.mapinfo = [...state.mapinfo, action.payload];
+    setSelectMilitaries: (state, action: PayloadAction<IMilitariesData>) => {
+      state.SelectMilitaries = action.payload;
+      state.status = "idle";
     },
-    deleteMapInfo: (state, action: PayloadAction<number>) => {
-      state.mapinfo = state.mapinfo.filter(({ id }) => id !== action.payload);
+    removeSelectMilitaries: (state) => {
+      state.SelectMilitaries = null;
       state.status = "idle";
     },
   },
   extraReducers(builder) {
     builder.addMatcher(
-      MilitariesApi.endpoints.getProvince.matchFulfilled,
+      MilitariesApi.endpoints.getMilitaries.matchFulfilled,
       (state, { payload }) => {
-        if (state.Province) {
-          state.Province.list = state.Province.list.concat(payload.list);
-        } else {
-          state.Province = payload;
-        }
-
+        state.Militaries = payload;
         state.status = "idle";
       }
     );
   },
 });
 
-export const { setMapinfo, deleteMapInfo } = MilitariesSlice.actions;
+export const { setSelectMilitaries, removeSelectMilitaries } =
+  MilitariesSlice.actions;
 
-export const selectProvinces = (state: RootState) =>
-  state.ProvinceSlice.Province;
-export const selectMapinfo = (state: RootState) => state.ProvinceSlice.mapinfo;
+export const selectMilitaries = (state: RootState) =>
+  state.MilitariesSlice.Militaries;
+
+export const selectSelectedMilitaries = (state: RootState) =>
+  state.MilitariesSlice.SelectMilitaries;
 
 export default MilitariesSlice.reducer;

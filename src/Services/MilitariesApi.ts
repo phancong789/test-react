@@ -2,10 +2,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../app/store";
 import * as env from "../env";
 import IListData from "../Interface/IListData";
-import IMapInfo from "../Interface/IMapInfo";
+import IMilitariesData from "../Interface/IMilitariesData";
 
 export const MilitariesApi = createApi({
-  reducerPath: "ProvinceApi",
+  reducerPath: "MilitariesApi",
   baseQuery: fetchBaseQuery({
     baseUrl: env.hostName,
     prepareHeaders: (headers, { getState }) => {
@@ -20,15 +20,42 @@ export const MilitariesApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["ProvinceApi"],
+  tagTypes: ["MilitariesApi"],
   endpoints: (builder) => ({
-    getProvince: builder.query<IListData<IMapInfo[]>, any>({
+    getMilitaries: builder.query<IListData<IMilitariesData[]>, any>({
       query: () => ({
         url: env.apiRoute.militaries,
-        params: env.getProvinParams,
+        params: env.getMilitariesParams,
+      }),
+      providesTags: ["MilitariesApi"],
+    }),
+    addNewMilitaries: builder.mutation({
+      query: (data) => ({
+        url: env.apiRoute.addNew,
+        method: "POST",
+        body: data,
+      }),
+    }),
+    updateMilitaries: builder.mutation({
+      query: (data) => ({
+        url: env.apiRoute.update + data.id,
+        method: "PUT",
+        body: data,
+      }),
+    }),
+    deleteMilitaries: builder.mutation({
+      query: (id) => ({
+        url: env.apiRoute.delete + id,
+        method: "DELETE",
       }),
     }),
   }),
 });
 
-export const { useLazyGetProvinceQuery } = MilitariesApi;
+export const {
+  useGetMilitariesQuery,
+  useLazyGetMilitariesQuery,
+  useAddNewMilitariesMutation,
+  useDeleteMilitariesMutation,
+  useUpdateMilitariesMutation,
+} = MilitariesApi;
