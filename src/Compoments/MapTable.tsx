@@ -19,7 +19,6 @@ import {
 } from "../Features/MilitariesSlice";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "../assets/Scss/MapTable.scss";
-import * as env from "../env";
 import { openDeleteModal } from "./Modal/DeleteMilitariesForm";
 import { openEditModal } from "./Modal/EditMilitariesForm";
 import { Button, Spinner } from "react-bootstrap";

@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom";
 import useOutsideAlerter from "../CustomHook/useOutsideAlerter";
 import "../assets/Scss/UserInfoAtConner.scss";
 import { useMeQuery, useLogoutMutation } from "../Services/autherApi";
-import { useAppDispatch, useAppSelector } from "../CustomHook/hook";
+import { useAppSelector } from "../CustomHook/hook";
 import { selectCurrentUser, selectToken } from "../Features/authorSlice";
 
 export default function UserInfoPopDown() {
-  const { data } = useMeQuery(0);
+  useMeQuery(0);
   const [logout] = useLogoutMutation();
   const selectMe = useAppSelector(selectCurrentUser);
   const selecttoken = useAppSelector(selectToken);
-  const dispatch = useAppDispatch();
   const wrapperRef = React.useRef(null);
   const customhook = useOutsideAlerter(wrapperRef);
   const navigate = useNavigate();

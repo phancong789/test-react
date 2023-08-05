@@ -1,9 +1,8 @@
-import { useState } from "react";
-import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./Ultis/PrivateRoute";
 import LoginPage from "./Pages/LoginPage";
 import MainPage from "./Pages/MainPage";
+import "./App.scss";
 
 function App() {
   return (

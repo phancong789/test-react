@@ -1,5 +1,4 @@
 import CloseIcon from "mdi-react/CloseIcon";
-import React, { useState } from "react";
 import Button from "react-bootstrap/esm/Button";
 import styled from "styled-components";
 import { useAppSelector } from "../../CustomHook/hook";
@@ -8,7 +7,6 @@ import {
   useDeleteMilitariesMutation,
   useGetMilitariesQuery,
 } from "../../Services/MilitariesApi";
-import IError from "../../Interface/IError";
 import { toast } from "react-toastify";
 
 const Dialog = styled.dialog`
@@ -36,7 +34,6 @@ const openDeleteModal = () => {
 export default function DeleteMilitariesForm() {
   const [trigger] = useDeleteMilitariesMutation();
   const { refetch } = useGetMilitariesQuery(0);
-  const [errorData, setErrorData] = useState<IError | null>(null);
   const selectmilitaries = useAppSelector(selectSelectedMilitaries);
   const clickHanlde = async () => {
     try {

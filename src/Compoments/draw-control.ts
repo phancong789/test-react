@@ -17,6 +17,7 @@ type DrawControlProps = ConstructorParameters<typeof MapboxDraw>[0] & {
 const DrawControl = react.forwardRef((props: DrawControlProps, ref) => {
   let drawRef = useControl<MapboxDraw>(
     () => new MapboxDraw(props),
+    ///@ts-ignore
     ({ map }: { map: MapRef }) => {
       if (props.onCreate) map.on("draw.create", props.onCreate);
       if (props.onUpdate) map.on("draw.update", props.onUpdate);
@@ -24,9 +25,9 @@ const DrawControl = react.forwardRef((props: DrawControlProps, ref) => {
       if (props.onModeChange) map.on("draw.modechange", props.onModeChange);
     },
     ({ map }: { map: MapRef }) => {
-      map.off("draw.create", props.onCreate);
-      map.off("draw.update", props.onUpdate);
-      map.off("draw.delete", props.onDelete);
+      if (props.onCreate) map.off("draw.create", props.onCreate);
+      if (props.onUpdate) map.off("draw.update", props.onUpdate);
+      if (props.onDelete) map.off("draw.delete", props.onDelete);
       if (props.onModeChange) map.on("draw.modechange", props.onModeChange);
       return drawRef;
     },
