@@ -194,6 +194,11 @@ export default function EditMilitariesForm() {
       }));
 
       setCenterPoint(center(selectmilitaries?.geometry));
+    }
+  }, [selectmilitaries]);
+
+  useEffect(() => {
+    setTimeout(() => {
       if (centerPoint?.geometry.coordinates)
         mapRef.current?.flyTo({
           center: [
@@ -201,8 +206,8 @@ export default function EditMilitariesForm() {
             centerPoint?.geometry.coordinates[1],
           ],
         });
-    }
-  }, [selectmilitaries]);
+    }, 500);
+  }, [centerPoint]);
 
   useEffect(() => {
     setTimeout(() => {

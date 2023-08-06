@@ -13,3 +13,21 @@
   margin-right: 2rem;
   border-bottom: 2px groove gray;
 }
+.nav-underline .nav-link.active,
+.nav-underline .show > .nav-link {
+  font-weight: 700;
+  color: rgb(7, 139, 7) !important;
+  border-bottom-color: currentcolor;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: rgb(68, 145, 68) !important;
+}
+
+.nav-underline .nav-link {
+  padding-right: 0;
+  padding-left: 0;
+  color: rgba(85, 84, 84, 0.89);
+  border-bottom: var(--bs-nav-underline-border-width) solid transparent;
+}
