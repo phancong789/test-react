@@ -10,13 +10,7 @@ import CreateNewMilitariesForm from "../Compoments/Modal/CreateNewMilitariesForm
 import EditMilitariesForm from "../Compoments/Modal/EditMilitariesForm";
 import DeleteMilitariesForm from "../Compoments/Modal/DeleteMilitariesForm";
 import { ToastContainer } from "react-toastify";
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 92%;
-  margin: 20px 50px;
-`;
+import "../assets/Scss/MainPage.scss";
 
 function MainPage() {
   const SwitchTableType = useAppSelector(selectSwitchTableType);
@@ -24,7 +18,7 @@ function MainPage() {
     <>
       <ToastContainer />
       <TopBar />
-      <Content>
+      <div className="content">
         <AboveTable />
         {SwitchTableType === "list" ? (
           <>
@@ -34,7 +28,7 @@ function MainPage() {
         ) : (
           <Maptable />
         )}
-      </Content>
+      </div>
       <CreateNewMilitariesForm />
       <EditMilitariesForm />
       <DeleteMilitariesForm />

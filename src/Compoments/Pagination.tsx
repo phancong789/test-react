@@ -41,7 +41,7 @@ export default function Pagination() {
       if (page === 0) continue;
 
       listLi.push(
-        <li>
+        <li key={"page:" + page.toString()}>
           <button
             onClick={(e) => {
               env.getMilitariesParams.set("page", e.currentTarget.innerText);

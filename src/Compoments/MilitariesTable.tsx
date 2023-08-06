@@ -188,11 +188,15 @@ export default function MilitariesTable() {
         </thead>
         <tbody>
           {isFetching || isLoading ? (
-            <Spinner animation="border" variant="success" />
+            <tr>
+              <td>
+                <Spinner animation="border" variant="success" />
+              </td>
+            </tr>
           ) : (
-            MilitariesListdata?.list.map((data) => {
+            MilitariesListdata?.list.map((data, index) => {
               return (
-                <tr>
+                <tr key={index.toString() + "tr"}>
                   <TableData>{data.name}</TableData>
                   <TableData>{data.code}</TableData>
                   <TableData>{data.description}</TableData>

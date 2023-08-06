@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Map, {
   Source,
   Layer,
@@ -16,7 +22,7 @@ import {
 } from "../../Services/MilitariesApi";
 import { toast } from "react-toastify";
 import IError from "../../Interface/IError";
-import DrawControl from "../draw-control";
+import DrawControl from "../Control/DrawControl";
 
 const Dialog = styled.dialog`
   z-index: 3;
@@ -36,17 +42,6 @@ const Dialog = styled.dialog`
   }
 `;
 
-const layerStyle: FillLayer = {
-  id: "water",
-  type: "fill",
-  source: "water",
-  paint: {
-    "fill-color": "red",
-    "fill-outline-color": "black",
-    "fill-opacity": 0.5,
-  },
-};
-
 const openCreateNewModal = () => {
   document.querySelector<HTMLDialogElement>(".addNew-modal")?.showModal();
 };
@@ -62,6 +57,20 @@ export default function CreateNewMilitariesForm() {
   const [submit] = useAddNewMilitariesMutation();
   const drawRef = useRef<MapboxDraw>();
   const geoJsonData = useRef<FeatureCollection>();
+
+  const layerStyle: FillLayer = useMemo(
+    () => ({
+      id: "water",
+      type: "fill",
+      source: "water",
+      paint: {
+        "fill-color": "red",
+        "fill-outline-color": "black",
+        "fill-opacity": 0.5,
+      },
+    }),
+    []
+  );
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;

@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Map, {
   Source,
   Layer,
@@ -17,7 +23,7 @@ import {
 } from "../../Services/MilitariesApi";
 import { toast } from "react-toastify";
 import IError from "../../Interface/IError";
-import DrawControl from "../draw-control";
+import DrawControl from "../Control/DrawControl";
 import { useAppDispatch, useAppSelector } from "../../CustomHook/hook";
 import {
   removeSelectMilitaries,
@@ -44,17 +50,6 @@ const Dialog = styled.dialog`
   }
 `;
 
-const layerStyle: FillLayer = {
-  id: "water",
-  type: "fill",
-  source: "water",
-  paint: {
-    "fill-color": "red",
-    "fill-outline-color": "black",
-    "fill-opacity": 0.5,
-  },
-};
-
 const openEditModal = () => {
   document.querySelector<HTMLDialogElement>(".editUser-modal")?.showModal();
 };
@@ -74,6 +69,20 @@ export default function EditMilitariesForm() {
   const mapRef = useRef<MapRef>(null);
   const geoJsonData = useRef<FeatureCollection>();
   const [centerPoint, setCenterPoint] = useState<Feature<Point>>();
+
+  const layerStyle: FillLayer = useMemo(
+    () => ({
+      id: "water",
+      type: "fill",
+      source: "water",
+      paint: {
+        "fill-color": "red",
+        "fill-outline-color": "black",
+        "fill-opacity": 0.5,
+      },
+    }),
+    []
+  );
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;
@@ -205,7 +214,6 @@ export default function EditMilitariesForm() {
         }
         return newFeatures;
       });
-      console.log(FeatureCollection);
     }, 1000);
   }, [FeatureCollection]);
 

@@ -16,9 +16,12 @@ export const store = configureStore({
     MilitariesSlice: MilitariesReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(AuthApi.middleware)
-      .concat(MilitariesApi.middleware),
+    getDefaultMiddleware({
+      immutableCheck: { warnAfter: 2000 },
+      serializableCheck: { warnAfter: 2000 },
+    })
+      .concat(MilitariesApi.middleware)
+      .concat(AuthApi.middleware),
   devTools: true,
 });
 
